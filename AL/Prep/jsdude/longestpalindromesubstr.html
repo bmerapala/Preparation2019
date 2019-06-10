@@ -1,0 +1,87 @@
+<script>
+
+function is_Palindrome(str1) {
+var rev = str1.split("").reverse().join("");
+return str1 == rev;
+}
+function hasuniqueChars(str){
+var exists={};
+var elm;
+ for(i=0;i<str.length;i++){
+ elm=str.charAt(i);
+ if(exists[elm]){
+ return false;
+ }
+exists[elm]=true;
+ }
+ return true;
+}
+
+function longest_palindrome(str1){
+
+	var max_length = 0,
+	maxp = '';
+
+	for(var i=0; i < str1.length; i++) 
+	{
+	var subs = str1.substr(i, str1.length);
+
+	for(var j=subs.length; j>=0; j--) 
+	{
+	var sub_subs_str = subs.substr(0, j);
+	if (sub_subs_str.length <= 1)
+	continue;
+     console.log("substrings",sub_subs_str);
+	
+	//longest common substring
+/*if( str2.indexOf(sub_subs_str) !== -1){
+	if (sub_subs_str.length > max_length) 
+	{
+	max_length = sub_subs_str.length;
+	maxp = sub_subs_str;
+	}
+	} */
+	
+	if (hasuniqueChars(sub_subs_str))
+	{
+	if (sub_subs_str.length > max_length) 
+	{
+	max_length = sub_subs_str.length;
+	maxp = sub_subs_str;
+	}
+	}
+	}
+	}
+
+	return max_length;
+	}
+	console.log(longest_palindrome("ABDEFGIABEF"));
+	
+function subarrayofgivensum(arr, givenSum){	
+var	currSum = arr[0];
+var start=0;
+var end=0;
+while (end < arr.length)
+{
+    if (currSum == givenSum)
+    {
+        console.log ("Found given sum from " + start + " to " + end);
+    }
+    
+    if (currSum <= givenSum)
+    {
+        end++;
+        if (end < arr.length)
+            currSum = currSum + arr[end];
+    }
+    else
+    {
+	 if (start < end){
+        currSum = currSum - arr[start];
+        start++;
+		}
+    }
+}
+}
+subarrayofgivensum([1, 4,6,0,8,2,0], 10);
+</script>

@@ -1,0 +1,101 @@
+<script>
+
+function inOrderSuccessor(node) {
+  if (!node) {
+    return null;
+  }
+
+  if (node.right) {
+    return leftMostChild(node.right);
+  } else {
+    var currentNode = node;
+    // Assuming each node has a reference to its parent
+    var parentNode = currentNode.parent;
+
+    // Go up until we find deepest ancestor for which node would be in left sub tree
+    while (parentNode && parentNode.left !== currentNode) {
+      currentNode = parentNode;
+      parentNode = parentNode.parent;
+    }
+
+    return parentNode;
+  }
+}
+
+function leftMostChild(node) {
+  if (!node) {
+    return null;
+  }
+  while (node.left) {
+    node = node.left;
+  }
+  return node;
+}
+function BinarySearchTree() {
+  this.root = null;
+}
+
+BinarySearchTree.prototype.createMinHeightBST = function (sortedrArr) {
+
+  var middle;
+  if (sortedrArr.length === 0) {
+    return 0;
+  } else if (sortedrArr.length === 1) {
+    middle = 0;
+  } else {
+    middle = Math.floor(sortedrArr.length / 2);
+  }
+  
+  this.insertNode(sortedrArr[middle]);
+
+  var leftArr = sortedrArr.slice(0, middle);
+  var rightArr = sortedrArr.slice(middle+1, sortedrArr.length);
+
+  this.createMinHeightBST(leftArr);
+  this.createMinHeightBST(rightArr);
+};
+
+var BST = new BinarySearchTree();
+var sortedUniqueArr = [0, 1, 2, 3, 4, 5, 6];
+
+BST.createMinHeightBST(sortedUniqueArr);
+console.log(BST);
+
+'use strict';
+
+function commonAncestor(n1, n2) {
+  var inOrderTra = inOrder(this);
+  var postOrderTra = postOrder(this);
+
+  var i1 = inOrderTra.indexOf(n1);
+  var i2 = inOrderTra.indexOf(n2);
+  var middleNodes = inOrderTra.splice(i1 + 1, i2);
+
+  var map = middleNodes.map(function(i) {
+    return {
+      i: postOrderTra.indexOf(i)
+    };
+  });
+
+  // Find the node with the highest index value
+  return Object.keys(map).reduce(function(a, b) {
+    return map[a] > map[b] ? a : b;
+  });
+}
+
+/*
+Returns an array containing all the elements in the in-order traversal.
+@param {BT} root
+*/
+function inOrder(root) {
+  ...
+}
+
+/*
+Returns an array containing all the elements in the post-order traversal.
+@param {BT} root
+*/
+function postOrder(root) {
+  ...
+}
+</script>

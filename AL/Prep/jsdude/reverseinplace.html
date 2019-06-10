@@ -1,0 +1,17 @@
+<script>
+
+function Reversewordsinplace(string){
+   var words = string.split(' ');
+   console.log(words);
+   var result = [];
+   for(var i = 0; i < words.length; i ++){
+     result.push(words[i].split('').reverse().join(''));
+   }  
+   return result.join(' ');
+}
+
+alert(Reversewordsinplace('I am a good girl'));
+</script>
+
+<!-- .reverse().join(' ').split('').reverse().join(''); -->
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript debugging example</title>
+ </head>   
+ <body>
+ 
+ <h1>hello</h1>
+ <input type="text" id="prime" ></input>
+ <button onclick="isPrime();">Check</button>
+<label id= "result"> </label>
+ 
+<script type="text/javascript">
+function dup(){
+var arr = [9, 9, 111,111, 2, 3, 4, 4, 5, 7];
+var sorted_arr = arr.sort(); // You can define the comparing function here. 
+                             // JS by default uses a crappy string compare.
+var results = [];
+for (var i = 0; i < arr.length - 1; i++) {
+    if (sorted_arr[i + 1] == sorted_arr[i]) {
+        results.push(sorted_arr[i]);
+    }
+}
+
+alert(results);
+}dup();
+function isPrime() {
+value= document.getElementById("prime").value;
+    for(var i = 2; i < value; i++) {
+        if(value % i === 0) {
+		 document.getElementById("result").innerHTML= (value + "is not a prime number");
+            return false;
+			
+        }
+    }
+	 document.getElementById("result").innerHTML= (value + "is a prime number");
+    return value > 1;
+   
+	
+}
+
+function nthprime(nth){
+ var num=1,count=0;
+  while (count < nth){
+      num++;
+      for (var i = 2; i <= num; i++){
+        if (num % i == 0) {
+          break;
+        }
+      }
+      if ( i == num){
+        count++;
+      }
+    }
+    console.log("Value of nth prime: " + num);
+}
+nthprime(11);
+
+</script>
+
+</body>
+</html>

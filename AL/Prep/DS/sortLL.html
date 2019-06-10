@@ -1,0 +1,148 @@
+<script>
+
+//doubly merge
+
+ 
+  Node split(Node head) {
+        Node fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        Node temp = slow.next;
+        slow.next = null;
+        return temp;
+    }
+ 
+ Node mergeSort(Node node) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+        Node second = split(node);
+ 
+        // Recur for left and right halves
+        node = mergeSort(node);
+        second = mergeSort(second);
+ 
+        // Merge the two sorted halves
+        return merge(node, second);
+    }
+ 
+    // Function to merge two linked lists
+    Node merge(Node first, Node second) {
+        // If first linked list is empty
+        if (first == null) {
+            return second;
+        }
+ 
+        // If second linked list is empty
+        if (second == null) {
+            return first;
+        }
+ 
+        // Pick the smaller value
+        if (first.data < second.data) {
+            first.next = merge(first.next, second);
+            first.next.prev = first;
+            first.prev = null;
+            return first;
+        } else {
+            second.next = merge(first, second.next);
+            second.next.prev = second;
+            second.prev = null;
+            return second;
+        }
+    }
+//singly merge
+var sortList = function(head) {
+    if (head === null || head.next === null) {
+        return head;
+    }
+
+    var prev = null;
+    var slow = head;
+    var fast = head;
+
+    while (fast !== null && fast.next !== null) {
+        fast = fast.next.next;
+        prev = slow;
+        slow = slow.next;
+    }
+
+    // close first half list
+    prev.next = null;
+
+    var l1 = sortList(head);
+    var l2 = sortList(slow);
+    return merge(l1, l2);
+};
+
+function merge(l1, l2) {
+    var head = new ListNode();
+    var current = head;
+
+    while (l1 !== null && l2 !== null) {
+        if (l1.val < l2.val) {
+            current.next = l1;
+            l1 = l1.next;
+        } else {
+            current.next = l2;
+            l2 = l2.next;
+        }
+
+        current = current.next;
+    }
+
+    current.next = (l1 === null) ? l2 : l1;
+
+    return head.next;
+}
+	
+	
+	
+	
+	
+	function getMiddle(h){
+	var fastPointer = head;
+var slowPointer = head;
+
+// loop through the linked list
+// when fastPointer reaches the end of the list
+// then slowPointer will be at the middle node
+while (fastPointer.next !== null && fastPointer.next.next !== null) {
+  fastPointer = fastPointer.next.next;   
+  slowPointer = slowPointer.next;
+}
+
+// slowPointer is now at the middle node in the linked list
+slowPointer.data
+}
+
+
+INTERSECTION OF 2 LL"S
+
+private static SinglyLinkedListNode findIntersectionOfTwoLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+    int length1 = SinglyLinkedList.getLength(head1);
+    int length2 = SinglyLinkedList.getLength(head2);
+
+    if (length1 > length2) {
+        int diff = length1 - length2;
+        for (int i = 0; i < diff; i++) {
+            head1 = head1.getNext();
+        }
+    } else {
+        int diff = length2 - length1;
+        for (int i = 0; i < diff; i++) {
+            head2 = head2.getNext();
+        }
+    }
+
+    while (head1 != null && head2 != null) {
+        if (head1.getValue() == head2.getValue())
+            return head1;
+        head1 = head1.getNext();
+        head2 = head2.getNext();
+    }
+    return null;
+}
+</script>

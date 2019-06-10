@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+ <script type="text/javascript">
+ 
+ function firstrepeatingnumber(){
+var numbers = [5, 7, 5, 6, 6, 4, 9, 10, 2, 11];
+for (var i = 0; i < numbers.length; i++) {
+  if (numbers.indexOf(numbers[i]) != i) {
+    return numbers[i];// stop cycle 
+  }
+}
+
+}
+
+console.log(firstrepeatingnumber());
+
+function firstrepeatingchar(str){
+var fig= str.split('');
+for (var i = 0; i < fig.length; i++) {
+  if (fig.indexOf(fig[i]) != i) {
+    return fig[i]; 
+  }
+}
+}
+console.log(firstrepeatingchar("thequickbrownfoxjumpsthenquicklyblowair"));
+
+function isPalindrome(str){
+  var i, len = str.length;
+  for(i =0; i<len; i++){
+    if (str[i]!== str[len -1 -i])
+       return false;
+  }
+  return true;
+}
+
+console.log(isPalindrome('peep'));
+
+
+
+ </script>
+ </html>

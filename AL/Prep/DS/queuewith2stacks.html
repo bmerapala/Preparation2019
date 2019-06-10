@@ -1,0 +1,106 @@
+<script>
+// Queue with 2 stacks
+var Stack1 = [];
+var Stack2 = [];
+
+// implement enqueue method by using only stacks
+// and the push and pop functions
+function Enqueue(element) {
+  Stack1.push(element);
+}
+
+// implement dequeue method by pushing all elements
+// from stack 1 into stack 2, which reverses the order
+// and then popping from stack 2
+function Dequeue() {
+  if (Stack2.length === 0) {
+    if (Stack1.length === 0) { return 'Cannot dequeue because queue is empty'; }
+    while (Stack1.length > 0) {
+      var p = Stack1.pop();
+      Stack2.push(p);
+    }
+  }
+  return Stack2.pop();
+}
+
+Enqueue('a');
+Enqueue('b');
+Enqueue('c');
+Dequeue(); 
+
+//Queue using 1 stack
+
+function Dequeue(){
+var result;
+var popped = stack.pop();
+if(stack.length ==0){
+return popped;
+}
+else{
+result= Dequeue();
+s1.push(popped);
+}
+return result;
+}
+
+function Enqueue(data){
+stack.push(data);
+}
+
+//Queue using a linkedlist
+
+// queue is initially empty
+var Queue = {front: null, back: null};
+
+// we will use a node to keep track of the elements
+// in the queue which is represented by a linked list
+function Node(data, next) {
+  this.data = data;
+  this.next = next;
+} 
+
+// add elements to queue in O(1) time
+function Enqueue(element) {
+  var N = new Node(element, null);
+  if (Queue.back === null) {
+    Queue.front = N;
+    Queue.back = N; 
+  } else { 
+    Queue.back.next = N; 
+    Queue.back = Queue.back.next;
+  } 
+}
+
+// remove first element from queue in O(1) time
+function Dequeue() {
+  if (Queue.front !== null) { 
+    var first = Queue.front;
+    Queue.front = Queue.front.next; 
+    return first.data;
+  } else {
+    if (Queue.back !== null) { Queue.back = null; }
+    return 'Cannot dequeue because queue is empty';
+  }
+}
+
+Enqueue('a'); 
+Enqueue('b'); 
+Enqueue('c'); 
+Dequeue();
+
+//stack with a queue
+class StackUsingQueueWithOnlyOneQueue{
+ var Queue=[];
+ 
+ function pop() {
+  int size = queue.size();
+  while (size > 1) {
+   queue.add(queue.remove());
+   size--;
+  }
+ }
+  
+ function push(data) {
+  Queue.push(data)
+}
+	</script>

@@ -1,0 +1,26 @@
+<script>
+var array = [90, 200, 15, 676, 94, 334, 70, 100, 11, 8];
+
+// basic implementation (pivot is the first element of the array)
+function quicksortBasic(array) {
+  if(array.length < 2) {
+    return array;
+  }
+
+  var pivot = array[0];
+  var lesser = [];
+  var greater = [];
+
+  for(var i = 1; i < array.length; i++) {
+    if(array[i] < pivot) {
+      lesser.push(array[i]);
+    } else {
+      greater.push(array[i]);
+    }
+  }
+
+  return quicksortBasic(lesser).concat(pivot, quicksortBasic(greater));
+}
+
+console.log(quicksortBasic(array.slice()));
+</script>

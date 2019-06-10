@@ -1,0 +1,63 @@
+Algorithms:
+
+-Return the k-closest points to the center of a cartesian plane given an array of coordinates.
+-Create and return a deep copy of a singly linked list where each node also has an additional pointer to a random node in the list.  
+
+-Design a function that finds a tree path with the lowest total value.  
+-Find Rectangle overlapped area
+-Shortest distance between the cities by visiting only them once  
+-find the subarray with the largest sum.  
+-Find a triplet such that sum of two equals to third element
+-Spiral Matrix,AntiSpiral Matrix, Diagonal Matrix, Zig-Zag Matrix, Divide without using '/'
+-Find all Anagrams
+-Reverse the 2nd half of a linked list
+-BST smallest sum
+-Vishnu Priya Questions
+-Meduim.com Questions
+-Old Questions
+-re-order 1's on even places and 0's in odd places in an array
+–Maximum Subarray Problem
+–Longest Common Subsequence
+-2D search string in matrix
+-Validate given IP address
+-The celebrity problem
+
+-Graphs
+
+-CRUD of LL,DLL,Trees
+
+Medium Corporation:
+
+B.S.T 5,8,14,21,23,31,32,33,35,36
+
+Graph and Backtracking:
+
+Rat in a maze
+1's are blocked and travel in 0's path
+Count all possible paths from top left to bottom right of a mXn matrix
+Print all possible paths from top left to bottom right of a mXn matrix
+Print all paths from top left to bottom right in a matrix with four moves allowed
+Print all palindromic paths from top left to bottom right in a matrix
+Print all paths from a given source to a destination
+Number of palindromic paths in a matrix
+Managers hashing recursion problem
+
+
+
+
+Design:
+
+-Paint
+-Parking lot
+-Uber
+-LRU Cache
+
+
+Behavioural:
+
+-Tell me about yourself
+-Strengths
+-Weaknesses
+-Why Amazon?
+-How can you translate your skills towards Amazon?
+-What experiences do you have that separate you from the rest?  

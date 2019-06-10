@@ -1,0 +1,35 @@
+<script>
+function sumDigits(n) {
+  var sum = 0;
+    while (n > 9 ) {
+                 sum=0;
+        while (n > 0) {
+            var rem = n % 10;
+            sum = Math.floor(sum+rem);
+            n =  Math.floor(n / 10);
+        }
+        n = sum;
+    }
+
+    console.log("sum",sum);
+        }
+
+sumDigits(15698);
+function greatestCommonDivisor(a, b){
+var divisor=2;
+var greatestdivisor=1;
+
+ if(a<2 || b<2){
+ return 1;
+}
+ while(a>=divisor && b>=divisor){
+ if(a % divisor == 0 && b% divisor == 0){
+  greatestdivisor =divisor;
+}
+divisor++;
+}
+return greatestdivisor;
+}
+console.log(greatestCommonDivisor(14, 21));
+console.log(greatestCommonDivisor(69, 169));
+  </script>

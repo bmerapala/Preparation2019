@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>example2</title>
+ </head>   
+ <body>
+ 
+ <input type="text" id="primefactors" ></input>
+ <button onclick="primeFactors();">Get all the factors</button>
+<label id= "result"> </label>
+ 
+<script>
+  function primeFactors() {
+  value = document.getElementById("primefactors").value;
+        var factors = [];
+        
+        for (var i = 2; i <= value; i++) {
+            while ((value % i) === 0) {
+                factors.push(i);
+                value = value/i;
+            }
+        }
+        
+        document.getElementById("result").innerHTML= factors;
+    }
+
+
+</script>
+</body>
+</html>

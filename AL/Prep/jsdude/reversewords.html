@@ -1,0 +1,34 @@
+<script>
+function reverseWords(str){
+ var rev = "", wordLen = 0;
+ for(var i = str.length-1; i>=0; i--){
+   if(str[i]==' ' || i==0){
+    rev += str.substr(i,wordLen+1);
+     wordLen = 0;
+   }
+   else
+     wordLen++;
+ }
+ 
+ return  rev;
+ 
+}
+
+console.log(reverseWords('seye lufituaeb evah I'));
+
+
+function reverseString(str) {
+    
+    var newString = "";
+
+    for (var i = str.length - 1; i >= 0; i--) { 
+        newString += str[i]; 
+    }
+    
+    return newString; 
+}
+ 
+console.log(reverseString("I am a good girl"));
+
+
+</script>

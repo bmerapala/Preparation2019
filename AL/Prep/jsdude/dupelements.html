@@ -1,0 +1,67 @@
+<script>
+// usage example:
+var arr1 = [1,1,2,2,2,2,3,3,3,3,3,3,3,3,4,4,5,6,6,7,7];
+
+arr1 =arr1.filter( function(item,index,inputArray){
+    return inputArray.indexOf(item) ==index;
+})
+	
+	console.log(arr1);
+	
+// usage example:
+function removeDuplicate(str){
+var arr= str.split('');
+  var exists ={},
+      outArr = [], 
+      elm;
+
+  for(var i =0; i<arr.length; i++){
+    elm = arr[i];
+    if(!exists[elm]){
+      outArr.push(elm);
+      exists[elm] = true;
+   }
+  }
+  return outArr.join('');
+}
+
+console.log(removeDuplicate("you have beautiful eyes"));
+	
+	
+	var evenoddarr=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1];
+
+function sort(arr,n){
+var even_index=0;
+var odd_index=1;
+while(true)
+{
+while(even_index<n&& arr[even_index] ==0)
+even_index+=2;
+while(odd_index<n&& arr[odd_index] ==1)
+odd_index+=2;
+if(even_index<n && odd_index<n)
+{
+var temp;
+temp= arr[even_index];
+arr[even_index]=arr[odd_index];
+arr[odd_index]=temp;
+even_index+=2;
+odd_index+=2;
+}
+else
+break;
+    
+}
+return arr;
+}
+
+function swap(a,b){
+var temp;
+
+temp=a;
+a=b;
+b=temp;
+}
+console.log(sort(evenoddarr,evenoddarr.length));
+	
+</script>

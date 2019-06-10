@@ -1,0 +1,72 @@
+<script>
+function LinkedList() {
+LinkedList.prototype.kthToLastNode = function (k) {
+  
+  // makes sure the k is positive integer
+  if (k <= 0) {
+    console.log('Please call the function with positive integer value of k.');
+    return;
+  }
+  
+  var p1 = this.head;
+  var p2 = this.head;
+  
+  for (var i = 0; i < k - 1; i++) {
+    // this will be true when k is grater than the length of linked list
+    if (!p2) {
+      console.log('k is greater than the length of the linked list.');
+      return;
+    }
+    p2 = p2.next;
+  }
+  
+  // this will be true when k is the length of linked list
+  if (!p2) {
+    console.log('k is the size of the linked list.');
+    return;
+  }
+  
+  while (p2.next) {
+    p1 = p1.next;
+    p2 = p2.next;
+  }
+  
+  return p1.data;
+};
+
+// Create an instance of a LinkedList class
+var L1 = new LinkedList();
+
+// Create a linked list with six elements
+L1.insertNodeAtTail(5);
+L1.insertNodeAtTail(6);
+L1.insertNodeAtTail(5);
+L1.insertNodeAtTail(7);
+L1.insertNodeAtTail(8);
+L1.insertNodeAtTail(9);
+L1.insertNodeAtTail(10);
+console.log(L1);
+
+console.log(L1.kthToLastNode(3)); // 8
+console.log(L1.kthToLastNode(11)); // null
+console.log(L1.kthToLastNode(-1)); // null  this.head = null;
+}
+
+removeDuplicates: function() {
+        ptr1 = this._head;
+        while(ptr1 != null) {
+            ptr2 = ptr1;
+            while(ptr2.next != null) {
+                if(ptr1.data == ptr2.next.data) {
+                    ptr2.next = ptr2.next.next;
+                    this._size--;
+                } else {
+                    ptr2 = ptr2.next;
+                }
+            }
+            ptr1 = ptr1.next;
+        }
+    }
+
+
+</script>

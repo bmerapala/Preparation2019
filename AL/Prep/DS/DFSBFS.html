@@ -1,0 +1,57 @@
+<script>//DFS
+Tree.prototype.traverseDF = function(callback) {
+ 
+    // this is a recurse and immediately-invoking function 
+    (function recurse(currentNode) {
+        // step 2
+        for (var i = 0, length = currentNode.children.length; i < length; i++) {
+            // step 3
+            recurse(currentNode.children[i]);
+        }
+ 
+        // step 4
+        callback(currentNode);
+         
+        // step 1
+    })(this._root);
+ 
+};
+
+//BFS
+Tree.prototype.traverse = function (callback) {
+  var queue=[this];
+  var n;
+
+  while(queue.length>0) {
+
+    n = queue.shift();
+    callback(n.value);
+
+    if (!n.children) {
+      continue;
+    }
+
+    for (var i = 0; i< n.children.length; i++) {
+       queue.push(n.children[i]);
+    }
+  }
+};
+
+//sum from root to leaf
+
+public void hasPath(Node root, int sum, String path){
+		if(root!=null){
+			if(root.data>sum){ // if root is greater than Sum required, return
+				return;
+			}else{
+				path+=" " + root.data; //add root to path
+				sum=sum-root.data; // update the required sum
+				if(sum==0){ //if sum required =0, means we have found the path
+					System.out.println(path);
+				}
+				hasPath(root.left, sum, path);
+				hasPath(root.right, sum, path);
+			}			
+		}
+
+</script>

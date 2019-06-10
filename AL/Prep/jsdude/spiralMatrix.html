@@ -1,0 +1,159 @@
+<script>
+
+var arr=[ [1,  2,  3,  4,  5,  6], 
+          [7,  8,  9,  10, 11, 12], 
+          [13, 14, 15, 16, 17, 18]
+                    ]
+function sm(m,n,a){
+var i, k = 0, l = 0; 
+        /*  k - starting row index 
+        m - ending row index 
+        l - starting column index 
+        n - ending column index 
+        i - iterator 
+        */
+           
+        while (k < m && l < n) 
+        { 
+            // Prvar the first row from the remaining rows 
+            for (i = l; i < n; ++i) 
+            { 
+                console.log(a[k][i]+" "); 
+            } 
+            k++; 
+   
+            // Prvar the last column from the remaining columns  
+            for (i = k; i < m; ++i) 
+            { 
+                console.log(a[i][n-1]+" "); 
+            } 
+            n--; 
+   
+            // Prvar the last row from the remaining rows */ 
+            if ( k < m) 
+            { 
+                for (i = n-1; i >= l; --i) 
+                { 
+                    console.log(a[m-1][i]+" "); 
+                } 
+                m--; 
+            } 
+   
+            // Prvar the first column from the remaining columns */ 
+            if (l < n) 
+            { 
+                for (i = m-1; i >= k; --i) 
+                { 
+                    console.log(a[i][l]+" "); 
+                } 
+                l++;     
+            }         
+        } 
+		}
+		
+sm(arr.length,arr[0].length,arr);
+
+
+//diagonal Matrix(upward)
+var matrix = [[ 1,2,3,4],
+			  [ 5,6,7,8],
+			  [ 9,10,11,12],
+			  [ 13,14,15,16],
+			  [ 17,18,19,20]
+];
+var R= matrix.length;
+var C= matrix[0].length;
+function dmu(matrix,R,C){
+console.log("DMU");
+var str="";
+
+ for (var k = 0; k < R; k++) 
+             { 
+                 str += matrix[k][0] + " "; 
+                  
+                 var i = k - 1;    // set row index for next 
+                                   // povar in diagonal 
+                 var j = 1;       //  set column index for  
+                                  // next povar in diagonal 
+            
+                 /* Prvar Diagonally upward */
+                 while (isValid(i, j)) 
+                 { 
+                      str += matrix[i][j] + " "; 
+                       
+                     i--; 
+                     j++;    // move in upright direction 
+                 } 
+                   
+                 
+             } 
+            
+             /* through this for loop we choose each element 
+                of last row as starting povar (except the  
+                [0][c-1] it has already been processed in  
+                previous for loop) and prvar diagonal  
+                starting at it. arr[R-1][0], arr[R-1][1].... 
+                arr[R-1][c-1] are all starting povars */
+            
+             // Note : we start from k = 1 to C-1; 
+             for (var k = 1; k < C; k++) 
+             { 
+                 str += matrix[R-1][k] + " " ;
+                   
+                 var i = R - 2; // set row index for next  
+                                // povar in diagonal 
+                 var j = k + 1; // set column index for   
+                                // next povar in diagonal 
+            
+                 /* Prvar Diagonally upward */
+                 while (isValid(i, j)) 
+                 { 
+                     str +=  matrix[i][j] + " "; 
+                       
+                     i--; 
+                     j++; // move in upright direction 
+                 } 
+                   
+                 console.log(""); 
+             } 
+			
+			 console.log("str",str);
+	}
+	
+	function isValid( i,  j) 
+     { 
+         if (i < 0 || i >= R || j >= C || j < 0) return false; 
+         return true; 
+     } 
+dmu(matrix,R,C);
+
+
+function dmd(Matrix,R,C){
+
+console.log("dwd");
+for(var k = 0; k < C; k++){
+
+         var i = 0; 
+		 var j = k;
+		 
+        for(;j >= 0 && i < R; j--, i++){
+           console.log( Matrix[i][j]); 
+        }
+        console.log('\n');
+    }
+     
+    // Print Lower half of matrix
+    for(var k = 1; k < R; k++){
+         var i = k;
+		 var j = C -1;
+		 
+        for(;j >= 0 && i < R; j--, i++){
+            console.log(Matrix[i][j]); 
+        }
+         console.log('\n');
+    }
+
+}
+
+dmd(matrix,R,C);
+</script>

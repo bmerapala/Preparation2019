@@ -1,0 +1,144 @@
+<script>
+//swap by mstk
+function demo(arr){
+var flag1= false;
+for(i=0;i<arr.length;i++){
+ if (arr[i]>arr[i+1] && flag1== false){
+ var a=arr[i];
+ flag1=true;
+ }
+ if(arr[i+1]>arr[i+2] && flag1==true){
+ var b=arr[i+2];
+ break;
+ }
+ }
+console.log(a+ ',' +b);
+}
+demo([2,5,20,10,8]);
+function firstNonRepeatChar(str){
+ var charset={};
+ var chars;
+ var resarr=[]; 
+ for(i=0;i<str.length;i++){
+ 
+   chars= str[i];
+   if(charset[chars]){
+     charset[chars]++;
+   }
+   else
+   charset[chars]=1;
+   
+  } 
+   for(var j in charset){
+    if(charset[j]==1)
+	return j;
+   }
+   console.log(resarr);
+ }
+console.log(firstNonRepeatChar('the quick brown fox jumps then quickly blow air'));
+
+
+
+function firstNonRepeatno(arr){
+ var numset={};
+ var nums;
+ var resarr=[]; 
+ for(i=0;i<arr.length;i++){
+   nums= arr[i];
+   if(numset[nums]){
+     numset[nums]++;
+   }
+   else
+   numset[nums]=1;
+   
+  } 
+   for(var j in numset){
+    if(numset[j]==1)
+	return j;
+	
+	
+   }
+  
+ }
+console.log(firstNonRepeatno([1,1,2,2,3,4]));
+
+
+function EquilibIndex(arr,n){
+var sum = 0; // initialize sum of whole array 
+		var leftsum = 0; // initialize leftsum 
+
+		/* Find sum of the whole array */
+		for (var i = 0; i < n; ++i) 
+			sum += arr[i]; 
+
+		for (var i = 0; i < n; ++i) { 
+			sum -= arr[i]; // sum is now right sum for index i 
+
+			if (leftsum == sum) 
+				return i; 
+
+			leftsum += arr[i]; 
+		} 
+
+		/* If no equilibrium index found, then return 0 */
+		return -1; 
+	} 
+	
+	console.log(EquilibIndex([5,-3,1,2,8,-5,0 ],7));
+	
+	//roman to integer
+	
+function translateRomanNumeral (romanNumeral) {
+
+  var DIGIT_VALUES = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000
+  };
+
+  var result = 0;
+  var input = romanNumeral.split('');
+
+  for (var i = 0; i < input.length; i++) {
+    var currentLetter = DIGIT_VALUES[input[i]];
+    var nextLetter = DIGIT_VALUES[input[i + 1]];
+    if (currentLetter === undefined) {
+      return 'null';
+    } else {
+      if (currentLetter < nextLetter) {
+        result += nextLetter - currentLetter;
+        i++;
+      } else {
+        result += currentLetter;
+      }
+    }
+  };
+
+  return result;
+}
+
+alert(translateRomanNumeral ("VI"));
+
+//longest prefix
+function commonprefix(strs){
+var arrA= strs.split(" ");
+var resultLen = arrA[0].length;
+		var curr;
+		for (var i = 1; i < arrA.length; i++) {
+			curr = 0;
+			while (curr < resultLen && curr < arrA[i].length
+					&& arrA[0].charAt(curr) == arrA[i].charAt(curr)) {
+				curr++;
+			}
+			resultLen = curr;
+		}
+		return arrA[0].substring(0, resultLen);
+		}
+console.log(commonprefix("apple applauncher applause appricot"));
+
+
+</script>

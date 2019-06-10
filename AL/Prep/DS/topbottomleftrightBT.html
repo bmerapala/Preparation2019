@@ -1,0 +1,68 @@
+
+<script>
+//top view 
+
+
+public void topView(Node root) {    
+    Node temp = root.left;
+    Stack<Node> stack = new Stack<>();
+
+    while(temp != null) {
+        stack.push(temp);
+        temp = temp.left;
+    }
+    while (!stack.isEmpty())
+        System.out.println(stack.pop().data);
+
+    System.out.println(root.data);
+    temp = root.right;
+    while (temp != null) {
+        System.out.println(temp.data);
+        temp = temp.right;
+    }
+}
+
+
+//Right View 
+
+
+public void rightView(Node root) {
+    Queue<Node> queue = new Queue<>();
+    if(root != null) {
+        queue.enqueue(root);
+        queue.enqueue(null);  // first level is over
+    }
+
+    while (!queue.isEmpty()) {
+        Node temp = queue.dequeue();
+        if(temp == null) {
+            if(queue.getSize() > 0)
+                queue.enqueue(null);   // current level is over
+            continue;
+        }
+
+        if(queue.peek() == null)      // next node is null means end of current level, so print it.
+            System.out.println(temp.data);
+        if(temp.left != null)
+            queue.enqueue(temp.left);
+        if(temp.right != null)
+            queue.enqueue(temp.right);
+    }
+}
+
+
+//Bottom View
+
+// print leaf nodes
+public void leafNodes(BinaryNode r) {
+    if(r!= null) {
+        leafNodes(r.left);
+        leafNodes(r.right);
+ 
+        if(r.left == null && r.right == null) {
+            System.out.println(r.element);
+        }
+    }
+}
+
+</script>

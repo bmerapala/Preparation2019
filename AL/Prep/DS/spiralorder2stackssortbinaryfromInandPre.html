@@ -1,0 +1,149 @@
+
+<script>
+//buildbinarytreefromInoredrandpreoredr
+
+class BinaryTree 
+{
+    Node root;
+    var preIndex = 0;
+  
+    /* Recursive function to construct binary of size len from
+       Inorder traversal in[] and Preorder traversal pre[].
+       Initial values of inStrt and inEnd should be 0 and len -1.  
+       The function doesn't do any error checking for cases where 
+       inorder and preorder do not form a tree */
+    Node buildTree(char in[], char pre[], int inStrt, int inEnd) 
+    {
+        if (inStrt > inEnd) 
+            return null;
+  
+        /* Pick current node from Preorder traversal using preIndex
+           and increment preIndex */
+        Node tNode = new Node(pre[preIndex++]);
+  
+        /* If this node has no children then return */
+        if (inStrt == inEnd)
+            return tNode;
+  
+        /* Else find the index of this node in Inorder traversal */
+        int inIndex = search(in, inStrt, inEnd, tNode.data);
+  
+        /* Using index in Inorder traversal, construct left and
+           right subtress */
+        tNode.left = buildTree(in, pre, inStrt, inIndex - 1);
+        tNode.right = buildTree(in, pre, inIndex + 1, inEnd);
+  
+        return tNode;
+    }
+  
+    /* UTILITY FUNCTIONS */
+     
+    /* Function to find index of value in arr[start...end]
+     The function assumes that value is present in in[] */
+    int search(char arr[], int strt, int end, char value) 
+    {
+        int i;
+        for (i = strt; i <= end; i++) 
+        {
+            if (arr[i] == value)
+                return i;
+        }
+        return i;
+    }
+
+//sort using 2 stacks
+
+ public static Stack<Integer> sortstack(Stack<Integer> 
+                                             input)
+    {
+        Stack<Integer> tmpStack = new Stack<Integer>();
+        while(!input.isEmpty())
+        {
+            // pop out the first element
+            int tmp = input.pop();
+         
+            // while temporary stack is not empty and
+            // top of stack is greater than temp
+            while(!tmpStack.isEmpty() && tmpStack.peek() 
+                                                 > tmp)
+            {
+                // pop from temporary stack and 
+                // push it to the input stack
+            input.push(tmpStack.pop());
+            }
+             
+            // push temp in tempory of stack
+            tmpStack.push(tmp);
+        }
+        return tmpStack;
+    }
+	
+//spiral level oredr(zig zag)
+class BinaryTree 
+{
+    Node root;
+  
+    // Function to print the spiral traversal of tree
+    void printSpiral(Node node) 
+    {
+        int h = height(node);
+        int i;
+  
+        /* ltr -> left to right. If this variable is set then the
+           given label is transversed from left to right */
+        boolean ltr = false;
+        for (i = 1; i <= h; i++) 
+        {
+            printGivenLevel(node, i, ltr);
+  
+            /*Revert ltr to traverse next level in opposite order*/
+            ltr = !ltr;
+        }
+  
+    }
+  
+    /* Compute the "height" of a tree -- the number of
+    nodes along the longest path from the root node
+    down to the farthest leaf node.*/
+    int height(Node node) 
+    {
+        if (node == null) 
+            return 0;
+        else
+        {
+              
+            /* compute the height of each subtree */
+            int lheight = height(node.left);
+            int rheight = height(node.right);
+  
+            /* use the larger one */
+            if (lheight > rheight) 
+                return (lheight + 1);
+            else
+                return (rheight + 1);
+        }
+    }
+  
+    /* Print nodes at a given level */
+    void printGivenLevel(Node node, int level, boolean ltr) 
+    {
+        if (node == null) 
+            return;
+        if (level == 1) 
+            System.out.print(node.data + " ");
+        else if (level > 1) 
+        {
+            if (ltr != false) 
+            {
+                printGivenLevel(node.left, level - 1, ltr);
+                printGivenLevel(node.right, level - 1, ltr);
+            } 
+            else
+            {
+                printGivenLevel(node.right, level - 1, ltr);
+                printGivenLevel(node.left, level - 1, ltr);
+            }
+        }
+    }
+	
+	</script>
