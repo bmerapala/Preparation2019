@@ -1,0 +1,7 @@
+C:\Personal\Sources\Learnings\Learnings\bin\Debug\Learnings.exe.config
+C:\Personal\Sources\Learnings\Learnings\bin\Debug\Learnings.exe
+C:\Personal\Sources\Learnings\Learnings\bin\Debug\Learnings.pdb
+C:\Personal\Sources\Learnings\Learnings\obj\Debug\Learnings.csprojAssemblyReference.cache
+C:\Personal\Sources\Learnings\Learnings\obj\Debug\Learnings.csproj.CoreCompileInputs.cache
+C:\Personal\Sources\Learnings\Learnings\obj\Debug\Learnings.exe
+C:\Personal\Sources\Learnings\Learnings\obj\Debug\Learnings.pdb
